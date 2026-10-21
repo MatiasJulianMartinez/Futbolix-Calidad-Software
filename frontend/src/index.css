@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0b1326;
+  --color-surface: #0b1326;
+  --color-surface-lowest: #060e20;
+  --color-surface-low: #131b2e;
+  --color-surface-container: #171f33;
+  --color-surface-high: #222a3d;
+  --color-surface-highest: #2d3449;
+
+  --color-primary: #4be277;
+  --color-primary-light: #6bff8f;
+
+  --color-on-primary: #003915;
+
+  --color-on-surface: #dae2fd;
+  --color-on-surface-variant: #bccbb9;
+
+  --color-outline: #869585;
+  --color-outline-variant: #3d4a3d;
+
+  --color-error: #ffb4ab;
+
+  --font-display: "Montserrat", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "JetBrains Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #0b1326;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #0b1326;
+  color: #dae2fd;
+  font-family: "Inter", sans-serif;
+}
+
+button,
+a,
+input,
+select {
+  font: inherit;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
+.fill-icon {
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
