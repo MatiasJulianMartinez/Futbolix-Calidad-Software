@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 import CanchaCard from "../components/CanchaCard";
-import heroImage from "../assets/fondohero.jpg";
+import heroImage from "../assets/fondohero.webp";
 import { obtenerCanchasDestacadas } from "../services/api";
 import Footer from "../components/Footer";
 
@@ -359,7 +359,7 @@ function Home() {
 function Paso({ numero, icono, titulo, descripcion }) {
   return (
     <article className="relative overflow-hidden rounded-xl border border-outline-variant bg-surface-low p-6 transition hover:border-primary/40 hover:bg-surface-container">
-      <span className="absolute right-4 top-3 font-display text-5xl font-extrabold text-surface-highest">
+      <span className="absolute right-4 top-3 font-display text-5xl font-extrabold text-[#8694b3]">
         {numero}
       </span>
 

@@ -83,17 +83,11 @@ function Reserva() {
     return ocupados;
   }, [reservas, canchaId, fechaSeleccionada]);
 
-  useEffect(() => {
-    if (!horaSeleccionada) {
-      return;
-    }
-
-    const horaNumero = Number(horaSeleccionada.split(":")[0]);
-
-    if (horariosOcupados.includes(horaNumero)) {
-      setHoraSeleccionada("");
-    }
-  }, [horariosOcupados, horaSeleccionada]);
+  const horaDisponible =
+    horaSeleccionada &&
+    !horariosOcupados.includes(Number(horaSeleccionada.split(":")[0]))
+      ? horaSeleccionada
+      : "";
 
   function esHorarioOcupado(hora) {
     return horariosOcupados.includes(hora);
@@ -130,11 +124,11 @@ function Reserva() {
   }
 
   function continuar() {
-    if (!cancha || !fechaSeleccionada || !horaSeleccionada) {
+    if (!cancha || !fechaSeleccionada || !horaDisponible) {
       return;
     }
 
-    const horaNumero = Number(horaSeleccionada.split(":")[0]);
+    const horaNumero = Number(horaDisponible.split(":")[0]);
 
     if (esHorarioOcupado(horaNumero)) {
       setHoraSeleccionada("");
@@ -144,7 +138,7 @@ function Reserva() {
     const parametros = new URLSearchParams({
       canchaId: String(cancha.id),
       fecha: fechaSeleccionada,
-      hora: horaSeleccionada,
+      hora: horaDisponible,
       cantidadHoras: "1",
     });
 
@@ -470,7 +464,7 @@ function Reserva() {
                 {horarios.map((hora) => {
                   const ocupado = esHorarioOcupado(hora);
 
-                  const seleccionado = horaSeleccionada === `${hora}:00`;
+                  const seleccionado = horaDisponible === `${hora}:00`;
 
                   if (ocupado) {
                     return (
@@ -590,14 +584,14 @@ function Reserva() {
 
                   <p
                     className={`mt-1 font-semibold ${
-                      horaSeleccionada
+                      horaDisponible
                         ? "text-primary"
                         : "text-on-surface-variant"
                     }`}
                   >
-                    {horaSeleccionada
-                      ? `${horaSeleccionada} - ${obtenerHoraFinal(
-                          horaSeleccionada,
+                    {horaDisponible
+                      ? `${horaDisponible} - ${obtenerHoraFinal(
+                          horaDisponible,
                         )}`
                       : "Seleccioná un horario"}
                   </p>
@@ -615,7 +609,7 @@ function Reserva() {
 
                 <span className="font-display text-2xl font-bold text-primary">
                   $
-                  {horaSeleccionada
+                  {horaDisponible
                     ? Number(cancha.precio_hora).toLocaleString("es-AR")
                     : "0"}
                 </span>
@@ -624,7 +618,7 @@ function Reserva() {
 
             <button
               type="button"
-              disabled={!horaSeleccionada}
+              disabled={!horaDisponible}
               onClick={continuar}
               className="mt-6 flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-primary font-semibold text-on-primary transition hover:bg-primary-light active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40"
             >
@@ -632,7 +626,7 @@ function Reserva() {
               <span className="material-symbols-outlined">arrow_forward</span>
             </button>
 
-            {!horaSeleccionada && (
+            {!horaDisponible && (
               <p className="mt-3 text-center text-xs text-on-surface-variant">
                 Seleccioná un horario disponible para continuar.
               </p>
