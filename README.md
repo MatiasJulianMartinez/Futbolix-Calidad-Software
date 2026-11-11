@@ -1,6 +1,7 @@
+
 # Futbolix - Calidad de Software
 
-Proyecto utilizado para el Trabajo Práctico 1 de la materia **Calidad de Software**.
+Proyecto Futbolix utilizado para los trabajos prácticos de la materia **Calidad de Software**.
 
 ## Tecnologías
 
@@ -23,7 +24,7 @@ Las funciones probadas están en:
 backend/src/services/reservaService.js
 ```
 
-Se ejecutan **4 pruebas unitarias** relacionadas con validación de horarios y cálculo del precio de una reserva.
+Se ejecutan **7 pruebas unitarias** relacionadas con la validación de horarios, los horarios límite, los horarios sin indicar y el cálculo del precio de una reserva.
 
 ## Cómo ejecutar las pruebas
 
@@ -37,7 +38,7 @@ Resultado esperado:
 
 ```text
 Test Suites: 1 passed, 1 total
-Tests:       4 passed, 4 total
+Tests:       7 passed, 7 total
 ```
 
 ## Cómo ejecutar el proyecto
@@ -75,5 +76,6 @@ http://localhost:5173
 ## Autor
 
 **Matias Julian Martinez**  
-Materia: **Calidad de Software**  
-Comisión: **ACN6AV**
+**Materia:** Calidad de Software  
+**Comisión:** ACN6AV
+
