@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
   const [menuAbierto, setMenuAbierto] = useState(false);
@@ -19,7 +19,7 @@ function Navbar() {
     <header className="sticky top-0 z-50 border-b border-outline-variant/70 bg-surface/90 backdrop-blur-xl">
       <nav className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 md:px-8 lg:px-12">
         {/* Logo */}
-        <Link to="/" onClick={cerrarMenu} className="flex items-center gap-2">
+        <div className="flex items-center gap-2">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
             <span className="material-symbols-outlined">sports_soccer</span>
           </div>
@@ -27,7 +27,7 @@ function Navbar() {
           <span className="font-display text-xl font-extrabold italic tracking-tight text-primary">
             Futbolix
           </span>
-        </Link>
+        </div>
 
         {/* Navegación escritorio */}
         <div className="hidden items-center gap-8 md:flex">
